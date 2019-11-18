@@ -1,8 +1,553 @@
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
 
-    </head>
-    <body>
-        <h1>halo</h1>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pure CSS</title>
+
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        /**
+        * For modern browsers
+        * 1. The space content is one way to avoid an Opera bug when the
+        *    contenteditable attribute is included anywhere else in the document.
+        *    Otherwise it causes space to appear at the top and bottom of elements
+        *    that are clearfixed.
+        * 2. The use of `table` rather than `block` is only necessary if using
+        *    `:before` to contain the top-margins of child elements.
+        */
+        .cf:before,
+        .cf:after {
+            content: " ";
+            /* 1 */
+            display: table;
+            /* 2 */
+        }
+
+        .cf:after {
+            clear: both;
+        }
+
+        /**
+        * For IE 6/7 only
+        * Include this rule to trigger hasLayout and contain floats.
+        */
+        .cf {
+            *zoom: 1;
+        }
+
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        header {
+            background-color: transparent;
+            width: 100%;
+            position: fixed;
+            overflow: hidden;
+            height: 50px;
+            color: white;
+            z-index: 99999;
+            transition: all 0.5s ease;
+        }
+
+        .navigasi {
+
+            width: 960px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin: auto;
+        }
+
+        .navigasi h1 {
+            transition: all 0.5s ease;
+            padding-top: 5px;
+            display: block;
+            float: left;
+        }
+
+        .navigasi h1:hover {
+            color: #2196fe;
+        }
+
+        .navigasi ul {
+            float: right;
+            display: block;
+        }
+
+        .navigasi ul li {
+            padding: 5px;
+            display: inline-block;
+
+        }
+
+        .navigasi ul li a {
+            transition: all 0.5s ease;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .navigasi ul li a:hover {
+            border-radius: 20px;
+            color: white;
+            padding: 10px;
+            background-color: #2196fe;
+        }
+
+        .container {
+            padding-bottom: 50px;
+            width: auto;
+            min-height: 900px;
+            background-color: whitesmoke;
+            height: auto;
+        }
+
+        .jumbotron {
+
+            background-color: #aaa;
+            background-image: url("img/kbrd.jpg");
+            background-size: cover;
+            width: 100%;
+            padding: 100px 30px;
+            margin-top: 20px;
+            margin: auto;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .jumbotron h2,
+        .jumbotron p {
+            position: relative;
+        }
+
+        .content {
+            width: 960px;
+            margin: auto;
+            justify-content: center;
+        }
+
+        .post {
+            width: 920px;
+            padding: 20px;
+            margin: auto;
+            background: #fff;
+            border: 1px solid #dedede;
+            -webkit-box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.35);
+            -moz-box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.35);
+            box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.35);
+        }
+
+        .post img {
+            width: 100%;
+        }
+
+        .post h1 {
+            padding: 0;
+            margin: 0 0 15px;
+            font-weight: normal;
+            color: #666;
+            font-family: Georgia;
+        }
+
+        .post p:last-child {
+            margin: 0;
+        }
+
+        .post .next {
+            color: #000;
+            transition: all 0.5s ease;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .post .next:hover {
+            color: #2196fe;
+            margin-left: 10px;
+        }
+
+        .post-info {
+            float: left;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .recent {
+            width: 960px;
+            padding-top: 20px;
+            margin: auto;
+            justify-content: center;
+            text-align: center;
+            overflow: auto;
+        }
+
+        .recent h1 {
+            width: 50%;
+            margin: auto;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #6eb8f8;
+        }
+
+        .card {
+            border-radius: 10px 10px 0px 0px;
+            background-color: white;
+            width: 290px;
+            margin: 15px;
+            float: left;
+            transition: all 0.5s ease;
+        }
+
+        .card img {
+            height: 180px;
+            width: 100%;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        .card h4 {
+            padding: 5px;
+            margin: 0 0 15px;
+        }
+
+        .recent .card h1 {
+            padding: 0;
+            margin: 0 0 15px;
+            font-weight: normal;
+            border: none;
+            color: #666;
+            font-family: Georgia;
+        }
+
+        .card p {
+            text-align: justify;
+            padding: 5px 10px 0 10px;
+            margin: 0 0 15px;
+        }
+
+        .card .next {
+            padding: 10px;
+            float: left;
+            color: #000;
+            transition: all 0.5s ease;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .card .next:hover {
+            color: #2196fe;
+            margin-left: 10px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            border: none;
+            border-bottom: 5px solid #2196fe;
+        }
+
+        footer {
+            background-color: #fff;
+            width: auto;
+            height: 100px;
+        }
+
+        .copy {
+            transition: all 0.5s ease;
+            border-top: 1px solid #dedede;
+            width: 960px;
+            padding-top: 40px;
+            margin: auto;
+            font-size: 20px;
+        }
+
+        .copy p:hover {
+            color: #2196fe;
+        }
+
+        .copy p {
+            transition: all 0.5s ease;
+            float: left;
+        }
+
+        .copy button {
+            transition: all 0.5s ease;
+            float: right;
+            color: whitesmoke;
+            padding: 10px;
+            font-family: Georgia;
+            border: none;
+            border-radius: 20px;
+            background-color: rgb(77, 75, 75);
+        }
+
+        .copy button:hover {
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            background-color: #2196fe;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+
+        <div class="navigasi">
+            <h1>WIROWOW</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="Tutorial.html">Tutorial</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="overlay"></div>
+            <h2>Welcome to my Website</h2><br>
+            <p>I am a Web and Android development enthusiast</p>
+        </div>
+        <div class="content"><br><br>
+            <div class="post">
+                <img src="img/as.png">
+                <div class="post-info">
+                    <br>
+                    Di Posting Oleh <b>ADMIN</b>
+                </div>
+                <br><br><br><br>
+                <h1> Android Studio #1 </h1>
+                <hr>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <br>
+                <a href="#" class="next">Selengkapnya →</a>
+            </div>
+
+            <div class="recent">
+                <h1>Recent Post</h1>
+                <div class="card">
+                    <img src="img/lara.jpg" alt="Avatar" style="width:100%">
+                    <h4><b>ADMIN</b></h4>
+                    <h1> Laravel #1 </h1>
+                    <hr>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <br>
+                    <a href="#" class="next">Selengkapnya →</a>
+                </div>
+                <div class="card">
+                    <img src="img/bg-main.jpg" alt="Avatar" style="width:100%">
+                    <h4><b>ADMIN</b></h4>
+                    <h1> HTML5 + CSS3 #1 </h1>
+                    <hr>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <br>
+                    <a href="#" class="next">Selengkapnya →</a>
+                </div>
+                <div class="card">
+                    <img src="img/kit.png" alt="Avatar" style="width:100%">
+                    <h4><b>ADMIN</b></h4>
+                    <h1> Kumpulan Matkul IT </h1>
+                    <hr>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <br>
+                    <a href="#" class="next">Selengkapnya →</a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <footer>
+        <div class="copy">
+            <p>&copy 2019 - wirowow</p>
+            <button>Who Am I ?</button>
+        </div>
+    </footer>
+
+
+    <script>
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        var navbar = document.getElementById("navbar");
+
+        function myFunction() {
+            if (document.documentElement.scrollTop >= 30) {
+                navbar.style.backgroundColor = "white";
+                navbar.style.color = "black";
+                navbar.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2)";
+            } else {
+                navbar.style.backgroundColor = "transparent";
+                navbar.style.color = "white";
+                navbar.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0)";
+            }
+        }
+    </script>
+</body>
+
 </html>

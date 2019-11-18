@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Pure CSS</title>
+
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        /**
+        * For modern browsers
+        * 1. The space content is one way to avoid an Opera bug when the
+        *    contenteditable attribute is included anywhere else in the document.
+        *    Otherwise it causes space to appear at the top and bottom of elements
+        *    that are clearfixed.
+        * 2. The use of `table` rather than `block` is only necessary if using
+        *    `:before` to contain the top-margins of child elements.
+        */
+        .cf:before,
+        .cf:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+
+        .cf:after {
+            clear: both;
+        }
+
+        /**
+        * For IE 6/7 only
+        * Include this rule to trigger hasLayout and contain floats.
+        */
+        .cf {
+            *zoom: 1;
+        }
+        *{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        header{
+            background-color: transparent;
+            width: 100%;
+            position: fixed;
+            overflow: hidden;
+            height: 50px;
+            z-index: 99999;
+            transition: all 0.5s ease;
+            color: white;
+        }
+        .navigasi{
+            width: 960px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin: auto;
+        }
+        .navigasi h1{
+            transition: all 0.5s ease;
+            padding-top: 5px;
+            display: block;
+            float: left;
+        }
+        .navigasi h1:hover{
+            color: #2196fe;
+        }
+        .navigasi ul{
+            float: right;
+            display: block;
+        }
+        .navigasi ul li{
+            padding: 5px;
+            display: inline-block;
+            
+        }
+        .navigasi ul li a{
+            transition: all 0.5s ease;
+            color: black;
+            text-decoration: none;
+        }
+        .navigasi ul li a:hover{
+            border-radius:20px ;
+            color: white;
+            padding: 10px;
+            background-color: #2196fe;
+        }
+
+        .container{
+            padding-bottom: 50px;
+            width: auto;
+            background-color: whitesmoke;
+            min-height: 900px;
+            height: auto;
+        }
+        .jumbotron {
+            
+            background-color: #aaa;
+            background-image: url("img/kbrd.jpg");
+            background-size: cover;
+            width: 100%;
+            padding: 150px 30px;
+            margin-top: 0;
+            margin: auto;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .jumbotron img{
+            transition: all 0.5s ease;
+            margin-bottom:10px;
+            background-size: cover;
+            position: relative;
+            width: 10%;
+            border: 2px solid #2196fe;
+            border-radius: 100%;
+        }
+        .jumbotron img:hover{
+            box-shadow: 16px 5px 16px 0 rgba(63, 135, 243, 0.4);
+            transform: scale(1.1);
+        }
+        .jumbotron h2,
+        .jumbotron p {
+            position: relative;
+        }
+        .content{
+            padding-top: 20px;
+            width: 960px;
+            margin: auto;
+            justify-content: center;
+        }
+        .bio{
+            width: 100%;
+            height: 200px;
+            margin-bottom: 25px;
+            border-radius: 25px;
+            background-color: white;
+            
+        }
+        .bio .info{
+            padding: 30px;
+            float: left;
+        }
+        .bio .info p{
+            line-height:1.4;
+            font-size: 12pt;
+        }
+        .bio .info h1{
+            font-size: 30px;
+            font-style: oblique;
+            border-bottom: 2px solid whitesmoke;
+            margin-bottom: 10px;
+        }
+        .bio .basic-info{
+            
+            padding: 30px;
+            float: right;
+        }
+        .bio .basic-info h1{
+            font-size: 30px;
+            font-style: oblique;
+            border-bottom: 2px solid whitesmoke;
+            margin-bottom: 10px;
+        }
+        .bio .basic-info td{
+            font-size: 15px;
+            font-style: oblique;
+            padding: 0 20px 5px;
+        }
+        .bio .basic-info td p{
+            text-decoration: none;
+            font-size: 15px;
+            font-style: normal;
+        }
+        .emailme{
+            transition: all 0.5s ease;
+            width: 535px;
+            height: 500px;
+            margin: auto;
+            border-radius: 25px;
+            background-color: white;
+        }
+        .emailme h1{
+            font-size: 30px;
+            font-style: oblique;
+            text-align: center;
+            border-bottom: 2px solid whitesmoke;
+            padding: 25px 0 10px 25px;
+        }
+        .emailme h3{
+            padding: 25px 0 0 25px;
+        }
+        .emailme input{
+            margin: 5px 0 0 25px;
+            width: 470px;
+            padding: 5px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+        }
+        input[type=text]:focus {
+            border: 3px solid #555;
+        }
+        input[type=text1]:focus {
+            border-bottom: 3px solid #555;
+        }
+        input[type=email]:focus {
+            border: 3px solid #555;
+        }
+        textarea:focus {
+            border: 3px solid #555;
+        }
+        input[type=text1] {
+            margin: 10px 0 0 25px;
+            width: 470px;
+            padding: 5px;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 3px solid #ccc;
+        }
+        textarea {
+            transition: all 0.5s ease;
+            margin: 10px 0 0 25px;
+            width: 460px;
+            max-height: 50px;
+            padding: 5px;
+            border: 3px solid #ccc;
+            border-radius: 10px;
+            resize: vertical;
+        }
+        .emailme button{
+            transition: all 0.5s ease;
+            margin: 25px 0 0 25px;
+            padding: 5px;
+            background-color: #fff;
+            color: #2196fe;
+            border: none;
+            border-radius: 10px;
+        }
+        .emailme button:hover{
+            background-color: rgb(68, 189, 68);
+            color: white;
+            border: 1px solid #ccc;
+            box-shadow: 16px 5px 16px 0 rgba(63, 135, 243, 0.2);
+            transform: scale(1.1);
+        }
+        .emailme button .fa{
+            padding: 5px;
+        }
+        
+        footer{
+            background-color: #fff;
+            width: auto;
+            height: 100px;
+        }
+        .copy{
+            transition: all 0.5s ease;
+            border-top: 1px solid #dedede;
+            width: 960px;
+            padding-top: 40px;
+            margin: auto;
+            font-size: 20px; 
+        }
+        .copy p:hover{
+            color: #2196fe;
+        }
+        .copy p{
+            transition: all 0.5s ease;
+            float: left;
+        }
+        .copy button{
+            border: none;
+            transition: all 0.5s ease;
+            float: right;
+            color: whitesmoke;
+            padding: 10px;
+            font-family: Georgia;
+            border-radius: 20px;
+            background-color: rgb(77, 75, 75);
+        }
+        .copy button:hover{
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            background-color: #2196fe;
+        }
+        .sosmed{
+            width: 960px;
+            margin: -35px auto;
+            text-align: center;
+            position: relative;
+        }
+        .sosmed .fa {
+            transition: all 0.5s ease;
+            padding: 10px 10px 10px 10px;
+            font-size: 40px;
+            width: 50px;
+            text-align: center;
+            justify-items: center;
+            text-decoration: none;
+            margin: 0 5px;
+            border-radius: 30%;
+            background-color: rgba(255, 255, 255, 0.4);
+            color: #2196fe;
+        }
+        .sosmed .fa:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 16px 5px 16px 0 rgba(63, 135, 243, 0.6);
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <header id="navbar">
+        
+        <div class="navigasi">
+                <h1>WIROWOW</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="Tutorial.html">Tutorial</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+            <div class="jumbotron">
+                    <div class="overlay"></div>
+                    <img src="img/me.png" alt="">
+                    <h2>Dicky Firmansyah</h2><br>
+                    <p>Android Development enthusiast & Web Development enthusiast</p>
+                </div>
+                <div class="sosmed">
+                    <a href="https://www.instagram.com/wirosableng_muda/" class="fa fa-instagram" title="Me On Instagram" target="_blank" rel="external"></a>
+                    <a href="https://twitter.com/Dickyfi93453884" class="fa fa-twitter" title="Me On Twitter" target="_blank" rel="external"></a>
+                    <a href="https://github.com/Subrotoking" class="fa fa-github" title="Me On Github" target="_blank" rel="external"></a>
+                    <a href="mailto:wirosableng212df@gmail.com?subject=Mail from Our Site" class="fa fa-envelope" title="Email Me" target="_blank" rel="external"></a>
+                    <a href="https://t.me/Wirowow" class="fa fa-telegram" title="Me On Telegram" target="_blank" rel="external"></a>
+                    <a href="https://wa.me/62852252810196?text= I am your fans" class="fa fa-whatsapp" title="Me On Whatsapp" target="_blank" rel="external"></a>
+                </div>
+                
+        <div class="content"><br><br>
+            <div class="bio">
+                <div class="info">
+                    <h1>About</h1>
+                    <p>Hello! I am Dicky Firmansyah. <br>
+                         I am a student at the University of Muhammadiyah Malang <br>
+                         Android Development enthusiast & Web Development enthusiast</p>
+                </div>
+                <div class="basic-info">
+                    <h1>Basic Information</h1>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td><p>Dicky Firmansyah</p></td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td><p>20</p></td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td><p> <a href="https://wa.me/62852252810196?text= I am your fans">+6282252810196</a></p></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><p><a href="mailto:wirosableng212df@gmail.com?subject=Mail from Our Site">wirosableng212df@gmail.com</a></p></td>
+                        </tr>
+                        <tr>
+                            <td>Language</td>
+                            <td><p>Indonesia</p> </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="emailme">
+                <form action="" method="post">
+                    <h1>Contact Me</h1>
+                    <h3>Name</h3>
+                    <input type="text" name="name" id="name"><br>
+                    <h3>Subject</h3>
+                    <input type="text" name="subject" id="subject"><br>
+                    <h3>Email</h3>
+                    <input type="email" name="email" id="email"><br>
+                    <h3>Your Message</h3>
+                    <textarea id="Message" name="Message" placeholder="Write something.." style="height:200px"></textarea>
+                    <button type="submit" name="submit" value="Send"><a class="fa fa-paper-plane"></a>Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copy">
+            <p>&copy 2019 - wirowow</p>
+            <button>Who Am I ?</button>
+        </div>
+    </footer>
+
+    <script>
+        window.onscroll = function() {myFunction()};
+            
+        var navbar = document.getElementById("navbar");
+            
+        function myFunction() {
+            if ( document.documentElement.scrollTop >= 30) {
+                navbar.style.backgroundColor = "white";
+                navbar.style.color = "black";
+                navbar.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2)";
+            } else {
+                navbar.style.backgroundColor = "transparent";
+                navbar.style.color = "white";
+                navbar.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0)";
+            }
+        }
+            
+            
+    </script>
+</body>
+</html>

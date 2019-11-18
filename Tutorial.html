@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pure CSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        /**
+        * For modern browsers
+        * 1. The space content is one way to avoid an Opera bug when the
+        *    contenteditable attribute is included anywhere else in the document.
+        *    Otherwise it causes space to appear at the top and bottom of elements
+        *    that are clearfixed.
+        * 2. The use of `table` rather than `block` is only necessary if using
+        *    `:before` to contain the top-margins of child elements.
+        */
+        .cf:before,
+        .cf:after {
+            content: " ";
+            /* 1 */
+            display: table;
+            /* 2 */
+        }
+
+        .cf:after {
+            clear: both;
+        }
+
+        /**
+        * For IE 6/7 only
+        * Include this rule to trigger hasLayout and contain floats.
+        */
+        .cf {
+            *zoom: 1;
+        }
+
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        header {
+            background-color: transparent;
+            width: 100%;
+            position: fixed;
+            overflow: hidden;
+            height: 50px;
+            color: white;
+            z-index: 99999;
+            transition: all 0.5s ease;
+        }
+
+        .navigasi {
+
+            width: 960px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin: auto;
+        }
+
+        .navigasi h1 {
+            transition: all 0.5s ease;
+            padding-top: 5px;
+            display: block;
+            float: left;
+        }
+
+        .navigasi h1:hover {
+            color: #2196fe;
+        }
+
+        .navigasi ul {
+            float: right;
+            display: block;
+        }
+
+        .navigasi ul li {
+            padding: 5px;
+            display: inline-block;
+
+        }
+
+        .navigasi ul li a {
+            transition: all 0.5s ease;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .navigasi ul li a:hover {
+            border-radius: 20px;
+            color: white;
+            padding: 10px;
+            background-color: #2196fe;
+        }
+
+        .container {
+            padding-bottom: 50px;
+            width: auto;
+            background-color: whitesmoke;
+            min-height: 900px;
+            height: auto;
+        }
+
+        .jumbotron {
+
+            background-color: #aaa;
+            background-image: url("img/kbrd.jpg");
+            background-size: cover;
+            width: 100%;
+            padding: 100px 30px;
+            margin-top: 20px;
+            margin: auto;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .jumbotron h2,
+        .jumbotron p {
+            position: relative;
+        }
+
+        .content {
+
+            width: 960px;
+            margin: auto;
+            justify-content: center;
+        }
+
+        .content .main {
+            border-radius: 25px 25px 0 0;
+            width: 700px;
+            margin: 25px 0 auto;
+            background-color: white;
+            float: left;
+        }
+
+        .main .head {
+            padding: 25px 10px 10px 25px;
+            border-bottom: 2px solid whitesmoke;
+            margin-bottom: 10px;
+        }
+
+        .head h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .content .main img {
+            background-size: cover;
+            padding: 25px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .main .isi {
+            padding: 15px 25px 25px 25px;
+            text-align: justify;
+        }
+
+        .main .share {
+            display: inline-block;
+            padding: 25px 25px 25px 25px;
+        }
+
+        .share ul li {
+            color: rgb(109, 107, 107);
+            display: inline;
+            font-size: 20px;
+        }
+
+        .fa {
+            color: rgb(109, 107, 107);
+            text-align: center;
+            justify-items: center;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .fa:hover {
+            color: #2196fe;
+            transform: scale(1.1);
+        }
+
+        .content .right {
+            border-radius: 25px 0 25px 0;
+            width: 240px;
+            margin: 25px 0 auto;
+            background-color: white;
+            float: right;
+        }
+
+        .right h1 {
+            font-size: 14px;
+            text-align: center;
+            padding: 25px 10px 10px 25px;
+            border-bottom: 2px solid whitesmoke;
+            margin-bottom: 10px;
+
+        }
+
+        .right .rp1 {
+            width: 240px;
+            margin: 15px auto;
+            float: left;
+            transition: all 0.5s ease;
+            padding-bottom: 10px;
+            border-bottom: 2px solid whitesmoke;
+        }
+
+        .rp1 img {
+            background-size: cover;
+            padding-left: 10px;
+            width: 40%;
+            margin: auto;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .rp1 p {
+            font-size: 14px;
+            text-align: justify;
+            padding-right: 10px;
+            width: 50%;
+            float: right;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        .right .rp2 {
+            width: 240px;
+            margin: 15px auto;
+            float: left;
+            transition: all 0.5s ease;
+            padding-bottom: 10px;
+            border-bottom: 2px solid whitesmoke;
+        }
+
+        .rp2 img {
+            background-size: cover;
+            padding-left: 10px;
+            width: 40%;
+            margin: auto;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .rp2 p {
+            font-size: 14px;
+            text-align: justify;
+            padding-right: 10px;
+            width: 50%;
+            float: right;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        .right .rp3 {
+            width: 240px;
+            margin: 15px auto;
+            float: left;
+            transition: all 0.5s ease;
+            padding-bottom: 10px;
+            border-bottom: 2px solid whitesmoke;
+        }
+
+        .rp3 img {
+            background-size: cover;
+            padding-left: 10px;
+            width: 40%;
+            margin: auto;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .rp3 p {
+            font-size: 14px;
+            text-align: justify;
+            padding-right: 10px;
+            width: 50%;
+            float: right;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        .rp1:hover, .rp2:hover, .rp3 :hover{
+            color: #2196fe;
+        }
+        .content .bottom {
+            width: 960px;
+            margin: auto;
+        }
+
+        .recent {
+            width: 960px;
+            padding-top: 20px;
+            margin: auto;
+            justify-content: center;
+            text-align: center;
+            overflow: auto;
+        }
+
+        .recent h1 {
+            width: 50%;
+            margin: auto;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #6eb8f8;
+        }
+
+        .card {
+            border-radius: 10px 10px 0px 0px;
+            background-color: white;
+            width: 290px;
+            margin: 15px;
+            float: left;
+            transition: all 0.5s ease;
+        }
+
+        .card img {
+            height: 180px;
+            width: 100%;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        .card h4 {
+            padding: 5px;
+            margin: 0 0 15px;
+        }
+
+        .recent .card h1 {
+            padding: 0;
+            margin: 0 0 15px;
+            font-weight: normal;
+            border: none;
+            width: auto;
+        }
+
+        .card p {
+            text-align: justify;
+            padding: 5px 10px 0 10px;
+            margin: 0 0 15px;
+        }
+
+        .card .next {
+            padding: 10px;
+            float: left;
+            color: #000;
+            transition: all 0.5s ease;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .card .next:hover {
+            color: #2196fe;
+            margin-left: 10px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            border: none;
+            border-bottom: 5px solid #2196fe;
+        }
+
+        footer {
+            background-color: #fff;
+            width: auto;
+            height: 100px;
+        }
+
+        .copy {
+            transition: all 0.5s ease;
+            border-top: 1px solid #dedede;
+            width: 960px;
+            padding-top: 40px;
+            margin: auto;
+            font-size: 20px;
+        }
+
+        .copy p:hover {
+            color: #2196fe;
+        }
+
+        .copy p {
+            transition: all 0.5s ease;
+            float: left;
+        }
+
+        .copy button {
+            transition: all 0.5s ease;
+            float: right;
+            color: whitesmoke;
+            padding: 10px;
+            font-family: Georgia;
+            border: none;
+            border-radius: 20px;
+            background-color: rgb(77, 75, 75);
+        }
+
+        .copy button:hover {
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            background-color: #2196fe;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+
+        <div class="navigasi">
+            <h1>WIROWOW</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="Tutorial.html">Tutorial</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="overlay"></div>
+            <h2>Welcome to my Website</h2><br>
+            <p>Just Share</p>
+        </div>
+        <div class="content">
+            <div class="main">
+                <div class="head">
+                    <h1>Android Studio #1</h1><br>
+                    <p>By: Admin</p>
+                </div>
+                <img src="img/as.png" alt="">
+                <div class="isi">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, sed quia. Minima quasi
+                        doloremque fuga, ipsam quas eum veniam at velit, consequuntur pariatur, sunt quia cupiditate
+                        obcaecati laborum placeat fugiat!
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae beatae aspernatur optio
+                        veniam veritatis, itaque repellendus! Id nisi ut, ad, quo amet quae sequi obcaecati itaque eos
+                        cumque laborum fuga.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur delectus maiores at tempora
+                        magni facilis velit? Doloribus cum labore temporibus eveniet vel velit doloremque maxime
+                        mollitia eos, ea explicabo provident.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro delectus unde doloremque ea
+                        voluptatum eaque fugiat sequi ab ratione. Explicabo recusandae delectus deleniti similique nam
+                        sequi quae natus hic harum?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam reprehenderit perferendis
+                        eos, inventore harum, modi doloribus nobis dicta error laboriosam architecto. Dolorum quos eius
+                        asperiores nobis consectetur adipisci ipsam.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati nihil quisquam sequi nam
+                        aperiam est pariatur laborum? Itaque iure rem excepturi, odit recusandae provident sequi
+                        corrupti et distinctio quo fugiat.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint ab fugiat quibusdam. Ad sint
+                        corporis recusandae sed repellat itaque, quod quae, alias repudiandae eos tempore nesciunt
+                        magnam, provident ipsum laborum?
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur ipsam obcaecati a natus eos
+                        nihil quo at id quas, eum nulla sit exercitationem beatae pariatur possimus voluptas sapiente
+                        facilis accusantium?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae impedit inventore tempore
+                        possimus sit omnis quia id, ad doloremque ipsum, sed alias unde beatae incidunt sunt est quas
+                        asperiores! Aspernatur.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae eius quis explicabo odit
+                        possimus? Obcaecati, omnis, nihil quam vel molestiae provident enim eos neque, placeat veniam
+                        est cum voluptas eveniet!
+                    </p>
+                </div>
+                <div class="share">
+                    <ul>
+                        <li>SHARE :</li>
+                        <li><a target="_blank" class="share-facebook" title="Share on Facebook" rel="external"
+                                href="https://www.facebook.com/share.php?u=https://www.wirowow.com"><i
+                                    class="fa fa-facebook"></i></a></li>
+                        <li><a target="_blank" class="share-twitter" title="Share on Twitter" rel="external"
+                                href="https://twitter.com/share?text=https://www.wirowow.com"><i
+                                    class="fa fa-twitter"></i></a></li>
+                        <li><a target="_blank" class="share-whatsapp" title="Share on Whatsapp" rel="external"
+                                href="https://api.whatsapp.com/send?text=https://www.wirowow.com"><i
+                                    class="fa fa-whatsapp"></i></a></li>
+                        <li><a target="_blank" class="share-email" title="Share on Email" rel="external"
+                                href="mailto:?subject=https://www.wirowow.com"><i class="fa fa-envelope-o"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <h1>Releated Post</h1>
+                <div class="rp1">
+                    <img src="img/css3.png" alt="">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, sit harum, voluptatem fuga
+                        atque, voluptates officiis vitae eaque necessitatibus cumque ratione velit rerum nam inventore
+                        ad animi quasi quidem. Exercitationem!</p>
+                </div>
+                <div class="rp2">
+                    <img src="img/bg-main.jpg" alt="">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, sit harum, voluptatem fuga
+                        atque, voluptates officiis vitae eaque necessitatibus cumque ratione velit rerum nam inventore
+                        ad animi quasi quidem. Exercitationem!</p>
+                </div>
+                <div class="rp3">
+                    <img src="img/lara.jpg" alt="">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, sit harum, voluptatem fuga
+                        atque, voluptates officiis vitae eaque necessitatibus cumque ratione velit rerum nam inventore
+                        ad animi quasi quidem. Exercitationem!</p>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="recent">
+                    <h1>Recent Post</h1>
+                    <div class="card">
+                        <img src="img/it.jpg" alt="Avatar" style="width:100%">
+                        <h4><b>ADMIN</b></h4>
+                        <h1> Mengapa Harus Memilih Teknik Informatika? </h1>
+                        <hr>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <br>
+                        <a href="#" class="next">Selengkapnya →</a>
+                    </div>
+                    <div class="card">
+                        <img src="img/bg-main.jpg" alt="Avatar" style="width:100%">
+                        <h4><b>ADMIN</b></h4>
+                        <h1> HTML5 + CSS3 #1 </h1>
+                        <hr>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <br>
+                        <a href="#" class="next">Selengkapnya →</a>
+                    </div>
+                    <div class="card">
+                        <img src="img/cer.jpg" alt="Avatar" style="width:100%">
+                        <h4><b>ADMIN</b></h4>
+                        <h1> Prospek Kerja Bidang IT </h1>
+                        <hr>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <br>
+                        <a href="#" class="next">Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copy">
+            <p>&copy 2019 - wirowow</p>
+            <button>Who Am I ?</button>
+        </div>
+    </footer>
+
+
+    <script>
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        var navbar = document.getElementById("navbar");
+
+        function myFunction() {
+            if (document.documentElement.scrollTop >= 30) {
+                navbar.style.backgroundColor = "white";
+                navbar.style.color = "black";
+                navbar.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2)";
+            } else {
+                navbar.style.backgroundColor = "transparent";
+                navbar.style.color = "white";
+                navbar.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0)";
+            }
+        }
+    </script>
+</body>
+
+</html>
